@@ -37,4 +37,9 @@ public class ExpenseService {
                 .mapToDouble(Expense::getAmount)
                 .sum();
     }
+    
+    @SuppressWarnings("unlikely-arg-type")
+	public void deleteExpense(Long id) {
+    	expenses.remove(id);
+    }
 }

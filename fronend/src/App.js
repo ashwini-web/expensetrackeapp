@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from 'react'
+import './App.css'
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -20,7 +21,6 @@ function App() {
   useEffect(() => {
     loadData();
   }, []);
-
   const addExpense = () => {
     fetch("http://localhost:8080/api/expenses", {
       method: "POST",
@@ -37,11 +37,10 @@ function App() {
       method: "DELETE"
     }).then(loadData);
   };
-
   return (
     <div style={{ padding: 20 }}>
-      <h2>ðŸ’° Expense Tracker</h2>
-      <h3>Total: â‚¹{total}</h3>
+      <h2>Expense Tracker</h2>
+      <h3>Total:{total}</h3>
 
       <input placeholder="Title" value={title}
         onChange={e => setTitle(e.target.value)} />
@@ -57,13 +56,14 @@ function App() {
       <ul>
         {expenses.map(e => (
           <li key={e.id}>
-            {e.title} - â‚¹{e.amount} ({e.category})
-            <button onClick={() => deleteExpense(e.id)}>âŒ</button>
+            {e.title} - {e.amount} ({e.category})
+            <button onClick={() => deleteExpense(e.id)}>Delete</button>
           </li>
         ))}
       </ul>
     </div>
   );
 }
+  
 
-export default App;
+export default App
