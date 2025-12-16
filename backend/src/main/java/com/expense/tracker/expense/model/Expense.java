@@ -5,14 +5,16 @@ public class Expense {
     private String title;
     private double amount;
     private ExpenseCategory category;
+   
     
-    
+   
 	public Expense(Long id, String title, double amount, ExpenseCategory category) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.amount = amount;
 		this.category = category;
+		
 	}
 	public Long getId() {
 		return id;
@@ -38,6 +40,6 @@ public class Expense {
 	public void setCategory(ExpenseCategory category) {
 		this.category = category;
 	}
+	
     
-
 }

@@ -1,16 +1,24 @@
 version: "3.9"
 services:
-  backend:
-    build: ./backend
-    image: yourdockerhubuser/backend:1.0.0
-    container_name: backend
+  api:
+    build:
+      context: ./backend
+    container_name: api
     ports:
-      - "8080:8080"
-  frontend:
-    build: ./frontend
-    image: yourdockerhubuser/frontend:1.0.0
-    container_name: frontend
+      - "8080:8080"   # expose if you want to hit it directly; not required
+    environment:
+      - SERVER_PORT=8080
+    # If you have a /health endpoint, great for readiness in other setups
+    networks: [appnet]
+
+  web:
+    build:
+      context: ./fronend   # note: folder is "fronend" in your repo
+       container_name: web
+    ports:
+      - "80:80"
     depends_on:
-      - backend
-    ports:
-      - "3000:80"
+      - api
+    networks: [appnet]
+
+networks:

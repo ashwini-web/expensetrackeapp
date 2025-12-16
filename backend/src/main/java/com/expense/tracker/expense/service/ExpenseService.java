@@ -8,6 +8,7 @@ import com.expense.tracker.expense.model.ExpenseCategory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -38,8 +39,10 @@ public class ExpenseService {
                 .sum();
     }
     
-    @SuppressWarnings("unlikely-arg-type")
-	public void deleteExpense(Long id) {
-    	expenses.remove(id);
-    }
+
+    public boolean deleteExpense(Long id) {
+    	Expense expense = expenses.stream().filter(exp-> exp.getId().equals(id)).findFirst().get();
+           return expenses.remove(expense);
+       }
+
 }

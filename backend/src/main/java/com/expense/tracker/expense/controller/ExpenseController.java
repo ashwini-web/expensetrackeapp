@@ -2,6 +2,8 @@ package com.expense.tracker.expense.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,9 +47,16 @@ public class ExpenseController {
         return service.getTotal();
     }
     
+
     @DeleteMapping("/{id}")
-    public void deleteExpense(@PathVariable("id") Long id) {
-    	service.deleteExpense(id);
-    }
+       public ResponseEntity<String> deleteExpense(@PathVariable Long id) {
+           boolean deleted = service.deleteExpense(id);
+           if (deleted) {
+               return ResponseEntity.ok("Expense deleted successfully.");
+           } else {
+               return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Expense not found.");
+           }
+       }
+
 
 }
