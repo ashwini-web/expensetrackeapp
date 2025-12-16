@@ -1,14 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
-  namespace: demo
-spec:
+  name: expense-web-svc
+  namespace: expense-app
+specspec:
   selector:
-    app: frontend
+    app: expense-web
   ports:
-    - name: http
-      port: 80
-      targetPort: 80
-      nodePort: 30080
-  type: NodePort
+    - port: 80
