@@ -1,24 +1,13 @@
-version: "3.9"
+
+version: "3.8"
 services:
-  api:
-    build:
-      context: ./backend
-    container_name: api
+  backend:
+    image: asrathod/expense-backend:1.0
     ports:
-      - "8080:8080"   # expose if you want to hit it directly; not required
-    environment:
-      - SERVER_PORT=8080
-    # If you have a /health endpoint, great for readiness in other setups
-    networks: [appnet]
+      - "8080:8080"
 
-  web:
-    build:
-      context: ./fronend   # note: folder is "fronend" in your repo
-       container_name: web
-    ports:
-      - "80:80"
+  frontend:
+    image: asrathod/expense-frontend:1.0
+       ports:
+      - "3000:80"
     depends_on:
-      - api
-    networks: [appnet]
-
-networks:
