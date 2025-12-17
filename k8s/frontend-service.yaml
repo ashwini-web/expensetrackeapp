@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: expense-web-svc
   namespace: expense-app
-specspec:
+spec:
   selector:
     app: expense-web
   ports:
