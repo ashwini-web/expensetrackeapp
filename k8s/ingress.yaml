@@ -5,12 +5,10 @@ metadata:
   name: expense-app-ingress
   namespace: expense-app
   annotations:
-    # If you use the NGINX Ingress Controller; change if your controller is different
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: "*"  # Match any host (useful for testing)
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
@@ -24,5 +22,5 @@ spec:
             backend:
               service:
                name: expense-api-svc
-                port: 8080
+                port:
 
