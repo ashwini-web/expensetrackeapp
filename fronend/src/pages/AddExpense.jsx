@@ -13,6 +13,7 @@ export default function AddExpense() {
   async function handleSubmit(e) {
     e.preventDefault();
     const payload = {
+      id: 1,
       title: form.title.trim(),
       amount: Number(form.amount),
       category: form.category.trim()
