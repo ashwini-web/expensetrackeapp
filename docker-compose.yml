@@ -3,12 +3,12 @@ version: "3.8"
 
 services:
   backend:
-    image: asrathod/expense-backend:latest
+    image: asrathod/expense-backend:1.0
     ports:
       - "8080:8080"
 
   frontend:
-    image: asrathod/expense-frontend:latest
+    image: asrathod/expense-frontend:1.0
     ports:
       - "3000:80"
     depends_on:
