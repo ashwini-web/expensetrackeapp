@@ -49,11 +49,11 @@ const total = useMemo(() => {
   return (
     <>
       <h1>Dashboard</h1>
-      <div><strong>Total:</strong> ₹{total.toLocaleString("en-IN")}</div>
+      <div><strong>Total: Rs. </strong> ₹{total.toLocaleString("en-IN")}</div>
       <ul style={{ marginTop: 12 }}>
         {expenses.map(e => (
           <li key={e.id} style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <Link to={`/expenses/${e.id}`}>
+            <Link to={`/api/expenses/${e.id}`}>
               {e.title} — {Number(e.amount).toLocaleString("en-IN")}
             </Link>
             <button onClick={() => deleteExpense(e.id)}>Delete</button>
