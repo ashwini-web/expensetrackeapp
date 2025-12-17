@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: asrathod/expense-frontend:1.2
+          image: asrathod/expense-frontend:2.2
           ports:
             - containerPort: 80
           readinessProbe:
