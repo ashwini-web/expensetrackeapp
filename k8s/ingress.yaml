@@ -9,6 +9,7 @@ metadata:
     # Optional timeouts/headers can be added via annotations or controller config
 spec:
   rules:
+  - host: "*"
     - http:
         paths:
           # API path routing
