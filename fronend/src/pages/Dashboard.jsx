@@ -25,10 +25,11 @@ export default function Dashboard() {
     })();
   }, []);
 
-  const total = useMemo(
-    () => expenses.reduce((sum, e) => sum + Number(e.amount || 0), 0),
-    [expenses]
-  );
+  
+const total = useMemo(() => {
+  const list = Array.isArray(expenses) ? expenses : [];
+  return list.reduce((sum, e) => sum + Number(e?.amount ?? 0), 0);
+};
 
   async function deleteExpense(id) {
     const prev = expenses;
