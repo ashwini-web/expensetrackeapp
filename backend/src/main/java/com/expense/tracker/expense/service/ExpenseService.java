@@ -44,5 +44,8 @@ public class ExpenseService {
     	Expense expense = expenses.stream().filter(exp-> exp.getId().equals(id)).findFirst().get();
            return expenses.remove(expense);
        }
-
+   
+    public Expense getExpenseById(Long id) {
+	   return expenses.stream().filter(exp-> exp.getId().equals(id)).findFirst().get();
+   }
 }

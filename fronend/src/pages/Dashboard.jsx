@@ -54,7 +54,7 @@ const total = useMemo(() => {
         {expenses.map(e => (
           <li key={e.id} style={{ display: "flex", gap: 8, alignItems: "center" }}>
             <Link to={`/expenses/${e.id}`}>
-              {e.title} — ₹{Number(e.amount).toLocaleString("en-IN")}
+              {e.title} — {Number(e.amount).toLocaleString("en-IN")}
             </Link>
             <button onClick={() => deleteExpense(e.id)}>Delete</button>
           </li>
